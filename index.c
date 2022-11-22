@@ -11,7 +11,7 @@ int main()
         scanf("%d",&x);
         if(x==3)
         {
-            printf("Thank you!!!Cum again!!haaa");
+            printf("Thank you!!!");
             break;
         }
         if((x<1)||(x>3))
