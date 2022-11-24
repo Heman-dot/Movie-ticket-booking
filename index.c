@@ -3,23 +3,26 @@
 int main()
 {
     int x;
-    while(x)
+    while((x!=3)&&(x!=2)&&(x!=1))
     {
-        printf(" Welcome To Movie ticket Booking\n");
+        printf("Welcome To Movie ticket Booking\n");
         printf("1-Ticket Booking\n2-Show Tickets\n3-Log out\n");
         printf("Enter you choice:");
         scanf("%d",&x);
-        if(x==3)
+        switch(x)
         {
-            printf("Thank you!!!");
-            break;
-        }
-        if((x<1)||(x>3))
-        {
+            case 3:
+              printf("Thank you!!!\n");
+              break;
+            case 1:
+              printf("Movies\n ");
+              break;
+            case 2:
+              printf("Ticket\n");
+              break;
+            default:
             printf("Enter a number among the given numbers\n");
-            continue;
         }
-        
     }
     return 0;
 }
