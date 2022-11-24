@@ -3,8 +3,7 @@
 int main()
 {
     int x;
-    while((x!=3)&&(x!=2)&&(x!=1))
-    {
+    do{
         printf("Welcome To Movie ticket Booking\n");
         printf("1-Ticket Booking\n2-Show Tickets\n3-Log out\n");
         printf("Enter you choice:");
@@ -23,6 +22,6 @@ int main()
             default:
             printf("Enter a number among the given numbers\n");
         }
-    }
+    }while((x!=3)&&(x!=2)&&(x!=1));
     return 0;
 }
