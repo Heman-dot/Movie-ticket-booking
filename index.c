@@ -85,7 +85,7 @@ void book_ticket()
     printf("Enter the movie number:");
     scanf("%d", &m);
 
-    is_valid = (m > 0) && (m < len);
+    is_valid = (m > 0) && (m <= len);
 
     if (!is_valid)
     {
@@ -99,6 +99,47 @@ void book_ticket()
   for (int i = 0; i < 3; i++)
   {
     printf("%d-%s (%s)\n", i + 1, m1.shows[i].time, m1.shows[i].screen);
+  }
+  int s;
+  printf("Enter the show timing:");
+  scanf("%d", &s);
+  clear_console();
+  printf("%s-%s (%s)\n", m1.name, m1.shows[s - 1].time, m1.shows[s - 1].screen);
+  int i, j;
+  for (i = 0; i < 1; i++)
+  {
+    for (j = 1; j <= 100; j++)
+    {
+      if (j % 4 == 0)
+        printf("*\t");
+      else
+        printf("%d\t", j);
+      if (j % 10 == 0)
+        printf("\n");
+    }
+  }
+  int nop;
+  printf("Enter the number of persons:");
+  scanf("%d", &nop);
+  int sno[nop];
+  for (i = 0; i < nop; i++)
+  {
+    int temp;
+  a:
+    printf("Enter the seat number for person %d:", i + 1);
+    scanf("%d", &temp);
+    if (temp % 4 == 0)
+    {
+      printf("Already Booked!\n");
+      goto a;
+    }
+    for (int itr = i - 1; itr >= 0; itr--)
+      if (sno[itr] == temp)
+      {
+        printf("Already selected!\n");
+        goto a;
+      }
+    sno[i] = temp;
   }
 }
 
