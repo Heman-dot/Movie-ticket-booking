@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include "custom_types.c"
+
  movie movies[5];
  void initdata()
  {
@@ -31,27 +32,11 @@
   strcpy(movies[2].shows[2].screen,"Screen 1");
   
  }
-
-int main()
-{
-  int x; 
-  initdata();
-  do
-  {
-    printf("Welcome To Movie ticket Booking\n");
-    printf("1-Ticket Booking\n2-Show Tickets\n3-Log out\n");
-    printf("Enter you choice:");
-    scanf("%d", &x);
-    switch (x)
-    {
-    case 3:
-      system("clear");
-      printf("Thank you!!!\n");
-      break;
-    case 1:
-      system("clear");
-      printf("Movies:\n");
-      int m,i;
+ void ticketbooking()
+ {
+   system("clear");
+   a:printf("Movies:\n");
+   int m,i;
     for(i=0;i<3;i++)
     {
       printf("%d-%s (%s)\n",i+1,movies[i].name,movies[i].lang);
@@ -70,6 +55,26 @@ int main()
       } 
      else
        printf("Enter a number among the given numbers\n");
+       goto a;
+ }
+int main()
+{
+  int x; 
+  initdata();
+  do
+  {
+    printf("Welcome To Movie ticket Booking\n");
+    printf("1-Ticket Booking\n2-Show Tickets\n3-Log out\n");
+    printf("Enter you choice:");
+    scanf("%d", &x);
+    switch (x)
+    {
+    case 3:
+      system("clear");
+      printf("Thank you!!!\n");
+      break;
+    case 1:
+      ticketbooking();
       break;
     case 2:
       printf("Ticket\n");
