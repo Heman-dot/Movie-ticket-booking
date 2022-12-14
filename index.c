@@ -119,8 +119,14 @@ void book_ticket()
     }
   }
   int nop;
+seat:
   printf("Enter the number of persons:");
   scanf("%d", &nop);
+  if (nop > 100)
+  {
+    printf("only 100 seats are available\n");
+    goto seat;
+  }
   int sno[nop];
   for (i = 0; i < nop; i++)
   {
@@ -139,6 +145,11 @@ void book_ticket()
         printf("Already selected!\n");
         goto a;
       }
+    if (temp > 100)
+    {
+      printf("Enter seat number within the given limit\n");
+      goto a;
+    }
     sno[i] = temp;
   }
 }
