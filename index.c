@@ -8,7 +8,7 @@ movie g_movies[3];
 void init_data();
 void book_ticket();
 void clear_console();
-
+void show_ticket();
 int main()
 {
   int choice;
@@ -118,8 +118,9 @@ void book_ticket()
         printf("\n");
     }
   }
+    printf("\t \t \t S   C   R   E   E   N\n");
   int nop;
-seat:
+ seat:
   printf("Enter the number of persons:");
   scanf("%d", &nop);
   if (nop > 100)
@@ -152,6 +153,11 @@ seat:
     }
     sno[i] = temp;
   }
+}
+
+void show_ticket()
+{
+ 
 }
 
 void clear_console()
