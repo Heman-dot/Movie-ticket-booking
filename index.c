@@ -15,6 +15,7 @@ int main()
   init_data();
   do
   {
+    clear_console();
     printf("Welcome To Movie ticket Booking\n");
     printf("1-Ticket Booking\n2-Show Tickets\n3-Log out\n");
     printf("Enter you choice:");
@@ -48,8 +49,8 @@ void init_data()
   strcpy(g_movies[0].shows[1].screen, "Screen 2");
   strcpy(g_movies[0].shows[2].time, "3:30 pm");
   strcpy(g_movies[0].shows[2].screen, "Screen 1");
-  strcpy(g_movies[1].name, "Black Panter");
-  strcpy(g_movies[1].lang, "English");
+  strcpy(g_movies[1].name, "Sita Ramam");
+  strcpy(g_movies[1].lang, "Telugu");
   strcpy(g_movies[1].shows[0].time, "7:30 am");
   strcpy(g_movies[1].shows[0].screen, "Screen 2");
   strcpy(g_movies[1].shows[1].time, "12:30 pm");
