@@ -6,6 +6,6 @@ typedef struct _show{
 
 typedef struct _movie{
     show shows[4];
-    char name[20];
+    char name[30];
     char lang[10];
 }movie;
