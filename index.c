@@ -9,6 +9,7 @@ void init_data();
 void book_ticket();
 void clear_console();
 void show_ticket();
+int temp_arr[101]={0};
 int main()
 {
   int choice;
@@ -102,23 +103,20 @@ void book_ticket()
     printf("%d-%s (%s)\n", i + 1, m1.shows[i].time, m1.shows[i].screen);
   }
   int s;
-  printf("Enter the show timing:");
+  printf("select the show timing:");
   scanf("%d", &s);
   clear_console();
   printf("%s-%s (%s)\n", m1.name, m1.shows[s - 1].time, m1.shows[s - 1].screen);
   int i, j;
-  for (i = 0; i < 1; i++)
-  {
     for (j = 1; j <= 100; j++)
     {
-      if (j % 4 == 0)
-        printf("*\t");
+      if(temp_arr[j]==0)
+       printf("%d\t", j);
       else
-        printf("%d\t", j);
+       printf("*\t");
       if (j % 10 == 0)
         printf("\n");
     }
-  }
     printf("\t \t \t S   C   R   E   E   N\n");
   int nop;
  seat:
@@ -129,20 +127,20 @@ void book_ticket()
     printf("only 100 seats are available\n");
     goto seat;
   }
-  int sno[nop];
+  int seat_no[nop];
   for (i = 0; i < nop; i++)
   {
     int temp;
   a:
     printf("Enter the seat number for person %d:", i + 1);
     scanf("%d", &temp);
-    if (temp % 4 == 0)
+    if (temp_arr[temp]==1)
     {
       printf("Already Booked!\n");
       goto a;
     }
     for (int itr = i - 1; itr >= 0; itr--)
-      if (sno[itr] == temp)
+      if (seat_no[itr] == temp)
       {
         printf("Already selected!\n");
         goto a;
@@ -152,7 +150,8 @@ void book_ticket()
       printf("Enter seat number within the given limit\n");
       goto a;
     }
-    sno[i] = temp;
+    seat_no[i] = temp;
+    temp_arr[temp]=1;
   }
 }
 
