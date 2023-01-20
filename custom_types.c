@@ -1,11 +1,20 @@
-typedef struct _show{
+typedef struct _show
+{
     char time[10];
     char screen[10];
-}show;
+} show;
 
-
-typedef struct _movie{
+typedef struct _movie
+{
     show shows[4];
     char name[30];
     char lang[10];
-}movie;
+} movie;
+
+typedef struct _ticket
+{
+    long long id;
+    movie t_movie;
+    show t_show;
+    int seats[10];
+}ticket;
