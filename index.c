@@ -88,7 +88,7 @@ void book_ticket()
     {
       printf("%d-%s (%s)\n", i + 1, g_movies[i].name, g_movies[i].lang);
     }
-    printf("4-Go Back\n");
+    printf("4-Main Menu\n");
     printf("Enter your choice:");
     scanf("%d", &m);
 
@@ -109,7 +109,7 @@ void book_ticket()
   {
     printf("%d-%s (%s)\n", i + 1, m1.shows[i].time, m1.shows[i].screen);
   }
-  printf("4-Go Back\n");
+  printf("4-Back\n");
   int s;
   printf("Enter your choice:");
   scanf("%d", &s);
@@ -216,13 +216,16 @@ void show_ticket()
     {
       printf("%d ", m_ticket.seats[itr_2]);
     }
-    printf("\n");
+    printf("\n\n");
   }
   }
-  printf("Press 1 to Go back\n");
+  printf("Press 0 to Go back\n");
+  printf("Press 1 to book tickets");
   scanf("%d",&x);
-  if(x==1)
+  if(x==0)
    main();
+  if (x==1)
+   book_ticket();
 }
 
 void clear_console()
