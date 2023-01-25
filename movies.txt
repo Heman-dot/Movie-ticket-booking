@@ -1,0 +1,9 @@
+Black Adam & English & 7:30 a m & Screen 1 $ 12:30 pm & Screen 2 & 3:30 pm & Screen 1 &
+
+
+
+
+
+
+
+Movie name & Lang & Show[0].time & Show[0].screen $ Show[1].time & Show[1].screen &
