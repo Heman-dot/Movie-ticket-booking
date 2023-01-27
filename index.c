@@ -2,9 +2,8 @@
 #include <string.h>
 #include <stdlib.h>
 #include "custom_types.c"
-
 movie g_movies[10];
-int movie_size = 3;
+int movie_size = 4;
 int showcount =  3;
 ticket g_ticket[10];
 int ticket_count = 0;
@@ -14,7 +13,6 @@ void book_ticket();
 void clear_console();
 void show_ticket();
 void display_welcome_screen();
-
 int main()
 {
   clear_console();
@@ -37,7 +35,8 @@ void display_welcome_screen()
     {
     case 3:
       clear_console();
-      printf("Thank you!!!\n");
+      printf("\t\t\t\tThank you!!!\n");
+      exit(1);
       break;
     case 1:
       book_ticket();
@@ -53,7 +52,7 @@ void display_welcome_screen()
 
  void init_data()
 {
- strcpy(g_movies[0].name, "Black Adam");
+ strcpy(g_movies[0].name, "Avatar 2");
  strcpy(g_movies[0].lang, "English");
  strcpy(g_movies[0].shows[0].time, "7:30 am");
  strcpy(g_movies[0].shows[0].screen, "Screen 1");
@@ -77,6 +76,14 @@ void display_welcome_screen()
  strcpy(g_movies[2].shows[1].screen, "Screen 2");
  strcpy(g_movies[2].shows[2].time, "2:30 pm");
  strcpy(g_movies[2].shows[2].screen, "Screen 1");
+ strcpy(g_movies[3].name,"Pathaan");
+ strcpy(g_movies[3].lang, "Hindi");
+ strcpy(g_movies[3].shows[0].time, "7:30 am");
+ strcpy(g_movies[3].shows[0].screen, "Screen 1");
+ strcpy(g_movies[3].shows[1].time, "12:30 am");
+ strcpy(g_movies[3].shows[1].screen, "Screen 2");
+ strcpy(g_movies[3].shows[2].time, "5:30 pm");
+ strcpy(g_movies[3].shows[2].screen, "Screen 1");
  }
 
 /*void init_data()
@@ -187,6 +194,11 @@ int get_show(movie chosen_movie)
     scanf("%d", &choice);
 
     is_valid = (choice > 0) && (choice <= movie_size + 1);
+    if(!is_valid)
+    {
+      printf("Enter among the given numbers\n");
+
+    }
 
     if (choice == showcount + 1)
       book_ticket();

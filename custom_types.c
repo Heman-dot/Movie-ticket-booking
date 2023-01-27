@@ -14,7 +14,6 @@ typedef struct _movie
 
 typedef struct _ticket
 {
-    long long id;
     movie t_movie;
     show t_show;
     int nos;
