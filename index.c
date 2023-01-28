@@ -4,7 +4,7 @@
 #include "custom_types.c"
 movie g_movies[10];
 int movie_size = 4;
-int showcount =  3;
+int showcount = 3;
 ticket g_ticket[10];
 int ticket_count = 0;
 /* Function Declaration */
@@ -20,7 +20,6 @@ int main()
   display_welcome_screen();
   return 0;
 }
-
 void display_welcome_screen()
 {
   clear_console();
@@ -49,43 +48,41 @@ void display_welcome_screen()
     }
   } while (choice != 3);
 }
-
- void init_data()
+void init_data()
 {
- strcpy(g_movies[0].name, "Avatar 2");
- strcpy(g_movies[0].lang, "English");
- strcpy(g_movies[0].shows[0].time, "7:30 am");
- strcpy(g_movies[0].shows[0].screen, "Screen 1");
- strcpy(g_movies[0].shows[1].time, "12:30 pm");
- strcpy(g_movies[0].shows[1].screen, "Screen 2");
- strcpy(g_movies[0].shows[2].time, "3:30 pm");
- strcpy(g_movies[0].shows[2].screen, "Screen 1");
- strcpy(g_movies[1].name, "Sita Ramam");
- strcpy(g_movies[1].lang, "Telugu");
- strcpy(g_movies[1].shows[0].time, "7:30 am");
- strcpy(g_movies[1].shows[0].screen, "Screen 2");
- strcpy(g_movies[1].shows[1].time, "12:30 pm");
- strcpy(g_movies[1].shows[1].screen, "Screen 1");
- strcpy(g_movies[1].shows[2].time, "5:30 pm");
- strcpy(g_movies[1].shows[2].screen, "Screen 1");
- strcpy(g_movies[2].name, "Varisu");
- strcpy(g_movies[2].lang, "Tamil");
- strcpy(g_movies[2].shows[0].time, "5:30 am");
- strcpy(g_movies[2].shows[0].screen, "Screen 1");
- strcpy(g_movies[2].shows[1].time, "10:30 am");
- strcpy(g_movies[2].shows[1].screen, "Screen 2");
- strcpy(g_movies[2].shows[2].time, "2:30 pm");
- strcpy(g_movies[2].shows[2].screen, "Screen 1");
- strcpy(g_movies[3].name,"Pathaan");
- strcpy(g_movies[3].lang, "Hindi");
- strcpy(g_movies[3].shows[0].time, "7:30 am");
- strcpy(g_movies[3].shows[0].screen, "Screen 1");
- strcpy(g_movies[3].shows[1].time, "12:30 am");
- strcpy(g_movies[3].shows[1].screen, "Screen 2");
- strcpy(g_movies[3].shows[2].time, "5:30 pm");
- strcpy(g_movies[3].shows[2].screen, "Screen 1");
- }
-
+  strcpy(g_movies[0].name, "Avatar 2");
+  strcpy(g_movies[0].lang, "English");
+  strcpy(g_movies[0].shows[0].time, "7:30 am");
+  strcpy(g_movies[0].shows[0].screen, "Screen 1");
+  strcpy(g_movies[0].shows[1].time, "12:30 pm");
+  strcpy(g_movies[0].shows[1].screen, "Screen 2");
+  strcpy(g_movies[0].shows[2].time, "3:30 pm");
+  strcpy(g_movies[0].shows[2].screen, "Screen 1");
+  strcpy(g_movies[1].name, "Sita Ramam");
+  strcpy(g_movies[1].lang, "Telugu");
+  strcpy(g_movies[1].shows[0].time, "7:30 am");
+  strcpy(g_movies[1].shows[0].screen, "Screen 2");
+  strcpy(g_movies[1].shows[1].time, "12:30 pm");
+  strcpy(g_movies[1].shows[1].screen, "Screen 1");
+  strcpy(g_movies[1].shows[2].time, "5:30 pm");
+  strcpy(g_movies[1].shows[2].screen, "Screen 1");
+  strcpy(g_movies[2].name, "Varisu");
+  strcpy(g_movies[2].lang, "Tamil");
+  strcpy(g_movies[2].shows[0].time, "5:30 am");
+  strcpy(g_movies[2].shows[0].screen, "Screen 1");
+  strcpy(g_movies[2].shows[1].time, "10:30 am");
+  strcpy(g_movies[2].shows[1].screen, "Screen 2");
+  strcpy(g_movies[2].shows[2].time, "2:30 pm");
+  strcpy(g_movies[2].shows[2].screen, "Screen 1");
+  strcpy(g_movies[3].name, "Pathaan");
+  strcpy(g_movies[3].lang, "Hindi");
+  strcpy(g_movies[3].shows[0].time, "7:30 am");
+  strcpy(g_movies[3].shows[0].screen, "Screen 1");
+  strcpy(g_movies[3].shows[1].time, "12:30 am");
+  strcpy(g_movies[3].shows[1].screen, "Screen 2");
+  strcpy(g_movies[3].shows[2].time, "5:30 pm");
+  strcpy(g_movies[3].shows[2].screen, "Screen 1");
+}
 /*void init_data()
 {
   FILE *fp = fopen("movies.txt", "r+");
@@ -140,17 +137,14 @@ void display_welcome_screen()
     }
   }
 }*/
-
 int get_movie()
 {
   clear_console();
-
   int movie_choice;
   int is_valid;
-
   do
   {
-    printf("Movies:%d\n",movie_size);
+    printf("Movies:%d\n", movie_size);
     for (int itr = 0; itr < movie_size; itr++)
     {
       printf("%d-%s (%s)\n", itr + 1, g_movies[itr].name, g_movies[itr].lang);
@@ -174,13 +168,10 @@ int get_movie()
 
   return movie_choice - 1;
 }
-
 int get_show(movie chosen_movie)
 {
   clear_console();
-
   int is_valid, choice;
-
   do
   {
     printf("%s - Show timings\n", chosen_movie.name);
@@ -194,10 +185,9 @@ int get_show(movie chosen_movie)
     scanf("%d", &choice);
 
     is_valid = (choice > 0) && (choice <= movie_size + 1);
-    if(!is_valid)
+    if (!is_valid)
     {
       printf("Enter among the given numbers\n");
-
     }
 
     if (choice == showcount + 1)
@@ -207,7 +197,6 @@ int get_show(movie chosen_movie)
 
   return choice - 1;
 }
-
 void show_seat_layout(movie chosen_movie, show m_show, int seat_arr[])
 {
   clear_console();
@@ -237,7 +226,6 @@ void show_seat_layout(movie chosen_movie, show m_show, int seat_arr[])
   printf("\n\t\t\tS   C   R   E   E   N\n");
   printf("Press 0 to cancel booking\n");
 }
-
 int get_no_of_tickets()
 {
   int nop, is_valid;
@@ -268,7 +256,6 @@ int get_no_of_tickets()
 
   return nop;
 }
-
 void get_seats(int nos, int seat_arr[], int seat_no[])
 {
   int is_valid, temp;
@@ -305,7 +292,6 @@ void get_seats(int nos, int seat_arr[], int seat_no[])
 
   return;
 }
-
 void book_ticket()
 {
   int seat_arr[100] = {0};
@@ -330,11 +316,8 @@ void book_ticket()
     return;
 
   int seats[nos];
-
   get_seats(nos, seat_arr, seats);
-
   ticket temp_tick;
-
   for (int itr = 0; itr < nos; itr++)
   {
     temp_tick.seats[itr] = seats[itr];
@@ -342,12 +325,13 @@ void book_ticket()
   temp_tick.t_movie = chosen_movie;
   temp_tick.t_show = chosen_show;
   temp_tick.nos = nos;
-
   g_ticket[ticket_count++] = temp_tick;
   clear_console();
-  printf("Ticket booked successfully!\n");
+  printf("\t\t\tTicket booked successfully!\n\n");
+  /*FILE *fp = fopen("ticket.txt", "w+");
+  fwrite(g_ticket, sizeof(ticket), ticket_count, fp);
+  fclose(fp);*/
 }
-
 void show_ticket()
 {
   clear_console();
@@ -355,14 +339,22 @@ void show_ticket()
   if (ticket_count == 0)
   {
     printf("No tickets Booked!\n");
-    printf("Press 0 to go back");
-    scanf("%d",&x);
-    if(x==0)
-     display_welcome_screen();
+    printf("Press 0 to go back\n");
+    scanf("%d", &x);
+    if (x == 0)
+      display_welcome_screen();
   }
   else
   {
     printf("\t \t \tLast Booked ticket\n");
+     /*FILE *ft = fopen("ticket.txt", "r");
+    fread(g_ticket, sizeof(ticket), ticket_count, ft);
+    printf("%s (%s) - %s (%s)\n", g_ticket[ticket_count-1].t_movie.name, g_ticket[ticket_count-1].t_movie.lang, g_ticket[ticket_count-1].t_show.time, g_ticket[ticket_count-1].t_show.screen);
+    printf("Seats:\n");
+    for (int j = 0; j < g_ticket[ticket_count-1].nos; j++)
+      printf("%d ", g_ticket[ticket_count-1].seats[j]);
+    printf("\n\n");
+    fclose(ft);*/
     printf("%s (%s) - ", g_ticket[ticket_count - 1].t_movie.name, g_ticket[ticket_count - 1].t_movie.lang);
     printf("%s (%s)\n", g_ticket[ticket_count - 1].t_show.time, g_ticket[ticket_count - 1].t_show.screen);
     printf("Seats:\n");
@@ -371,13 +363,12 @@ void show_ticket()
       printf("%d ", g_ticket[ticket_count - 1].seats[itr]);
     }
     printf("\n\n");
-  
-  printf("1-Show all tickets\n");
-  printf("2-Go back\n");
-  scanf("%d", &x);
-  if (x == 2)
-    display_welcome_screen();
-  else if (x == 1)
+    printf("1-Show all tickets\n");
+    printf("2-Go back\n");
+    scanf("%d", &x);
+    if (x == 2)
+      display_welcome_screen();
+    else if (x == 1)
   {
     clear_console();
     for (int itr = 0; itr < ticket_count; itr++)
@@ -393,9 +384,23 @@ void show_ticket()
       printf("\n\n");
     }
   }
+    /*else if (x == 1)
+    {
+      clear_console();
+      FILE *ft = fopen("ticket.txt", "r");
+      fread(g_ticket, sizeof(ticket), ticket_count, ft);
+      for (int i = 0; i < ticket_count; i++)
+      {
+        printf("%s (%s) - %s (%s)\n", g_ticket[i].t_movie.name, g_ticket[i].t_movie.lang, g_ticket[i].t_show.time, g_ticket[i].t_show.screen);
+        printf("Seats:\n");
+        for (int j = 0; j < g_ticket[i].nos; j++)
+          printf("%d ", g_ticket[i].seats[j]);
+        printf("\n\n");
+      }
+      fclose(ft);
+    }*/
   }
 }
-
 void clear_console()
 {
   system("clear");
